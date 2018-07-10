@@ -1,7 +1,11 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'wombat'
+
+review_data = WombatScraper.new.crawl
+
+puts review_data
+
+review_data.each do |review|
+  title = review_data['the_articles'][0]['article'][0]['title']
+  content = review_data['the_articles'][0]['article'][0]['content']
+  Review.create!(title: title, content: content)
+end
