@@ -18,4 +18,4 @@ class ReviewTest < ActiveSupport::TestCase
       refute review.valid?, 'review is not valid without content'
       assert_not_nil review.errors[:content], 'No validation error for content present'
     end
-end
+  end
