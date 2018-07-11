@@ -1,13 +1,13 @@
 require "test_helper"
 
-class MovieTest < ActiveSupport::TestCase
+class ReviewTest < ActiveSupport::TestCase
   it "Can be created" do
     review = Review.new("title": "Awesome Game",
       "content": "Review Stuff")
       assert review.valid?
     end
 
-    it "Invlaid without a title" do
+    it "Invalid without a title" do
       review = Review.new("content": "Review Stuff")
       refute review.valid?, 'review is valid without a title'
       assert_not_nil review.errors[:title], 'no validation error for title present'

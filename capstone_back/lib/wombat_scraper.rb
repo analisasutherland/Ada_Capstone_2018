@@ -18,8 +18,8 @@ class WombatScraper
   end
   # end
 end
-
+# 
 # new_scrape = WombatScraper.new.crawl
-#
-# puts new_scrape.to_a.last
+# #
+# puts new_scrape.to_a
 # <a class="c-pagination__next c-pagination__link p-button" href="/reviews/archives/2">Next</a>
