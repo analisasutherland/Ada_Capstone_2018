@@ -18,7 +18,7 @@ class WombatScraper
   end
   # end
 end
-# 
+#
 # new_scrape = WombatScraper.new.crawl
 # #
 # puts new_scrape.to_a

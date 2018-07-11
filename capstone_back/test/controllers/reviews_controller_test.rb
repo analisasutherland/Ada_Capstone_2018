@@ -8,3 +8,4 @@ class ReviewsControllerTest < ActionDispatch::IntegrationTest
     value(response).must_be :success?
   end
 end
+# TODO: Include error handling tests 'review does not exsist it shows an error'

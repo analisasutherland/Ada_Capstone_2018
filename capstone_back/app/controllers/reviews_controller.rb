@@ -4,11 +4,13 @@ class ReviewsController < ApplicationController
   # GET /reviews/1
   def show
     render json: @review.as_json(
-      only: [:title, :content]
+      only: %i[title content]
     )
   end
 
   private
+
+  # TODO: Ask Charles what these methods are doing, they were automatically created upon generation of Rails API
   # Use callbacks to share common setup or constraints between actions.
   def set_review
     @review = Review.find(params[:id])
