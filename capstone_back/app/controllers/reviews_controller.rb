@@ -10,7 +10,6 @@ class ReviewsController < ApplicationController
 
   private
 
-  # TODO: Ask Charles what these methods are doing, they were automatically created upon generation of Rails API
   # Use callbacks to share common setup or constraints between actions.
   def set_review
     @review = Review.find(params[:id])

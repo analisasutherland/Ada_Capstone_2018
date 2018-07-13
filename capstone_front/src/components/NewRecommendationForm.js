@@ -10,7 +10,8 @@ class NewRecommendationForm extends Component {
   constructor() {
     super();
     this.state = {
-      selected_topics: []
+      selected_topics: [],
+      recommendation_id: ''
     };
   }
 
@@ -22,6 +23,7 @@ class NewRecommendationForm extends Component {
   onFormSubmit = (event) => {
     event.preventDefault();
     console.log('clicked submit')
+    console.log(this.state);
 
     let searchURL = BASE_URL + `/recommendations`
 
@@ -35,16 +37,31 @@ class NewRecommendationForm extends Component {
       console.log('Success');
       console.log(response.data);
       // this.setState({results: response.data});
-      // console.log(this.state.results);
+      console.log(this.state.results);
+      this.setState({recommendation_id: response.data.id})
+      console.log(this.state.recommendation_id);
     })
 
     .catch((error) => {
       // TODO: include Status Message using Status Component
       console.log(error);
     });
+
+    // QUESTION: Do I need to reset the rec id after I have created a new recommendation
+
+    // this.setState({
+    //   recommendation_id: ''
+    // })
   }
 
   render(){
+    // const reccs = this.state.results.map((results,index) => {
+    //   return <Recommendation
+    //   key={index}
+    //   index={index}
+    //   game={result.game_id}
+    //   />
+    // });
     return(
       <div className='whole-rec-form'>
 
@@ -106,6 +123,11 @@ class NewRecommendationForm extends Component {
       </div>
 
       </form>
+
+      // <div className="returned_recs">
+      //   { reccs }
+      // </div>
+
       </div>
     )
   }

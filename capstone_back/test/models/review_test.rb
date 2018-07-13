@@ -1,21 +1,44 @@
 require "test_helper"
 
 class ReviewTest < ActiveSupport::TestCase
-  it "Can be created" do
-    review = Review.new("title": "Awesome Game",
-      "content": "Review Stuff")
-      assert review.valid?
-    end
+  let (:review_data) {
+    {
+      "title": "Awesome Game",
+      "content": "Review Stuff",
+    }
+  }
 
-    it "Invalid without a title" do
-      review = Review.new("content": "Review Stuff")
-      refute review.valid?, 'review is valid without a title'
-      assert_not_nil review.errors[:title], 'no validation error for title present'
-    end
+  before do
+    @review = Review.new(review_data)
+  end
 
-    it 'Invalid without content' do
-      review = Review.new('title': "Awesome Game")
-      refute review.valid?, 'review is not valid without content'
-      assert_not_nil review.errors[:content], 'No validation error for content present'
+  describe 'Constructor' do
+    it "Can be created" do
+      assert @review.valid?
     end
   end
+
+  describe "Relations" do
+    it "has Games" do
+      @review.must_respond_to :games
+    end
+
+    it 'can set the game through Game' do
+      test_game = Game.create!(game_title:"Another Game")
+      test_review = Review.new(review_data)
+
+      test_review.game = test_game
+
+      test_review.game_id.must_equal test_game.id
+    end
+
+    it 'can set the game through game_id' do
+      test_game = Game.create!(game_title:"Another Game")
+      test_review = Review.new(review_data)
+
+      test_review.game_id = test_game.id
+
+      test_review.game.must_equal test_game
+    end
+  end
+end

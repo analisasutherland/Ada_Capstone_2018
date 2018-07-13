@@ -19,9 +19,9 @@ class RecommendationsController < ApplicationController
     @recommendation = Recommendation.new(recommendation_params)
 
     if @recommendation.save
-      render json: @recommendation, status: :created, location: @recommendation
+      render json: @recommendation, status: :ok
     else
-      render json: @recommendation.errors, status: :unprocessable_entity
+      render status: :bad_request, json: { errors: @recommendation.errors.messages}
     end
   end
 
