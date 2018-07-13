@@ -19,7 +19,7 @@ review_data['the_articles'].each do |review|
     title = tentative_title.group_by(&:itself).values.max_by(&:size).first
   end
 
-  Game.create!(game_title: title) if Game.find_by(game_title: title).nil?
+  new_game = Game.find_or_create_by!(game_title: title)
 
   # The content is broken up into separate index based on paragraphs. Joining them together at a line break
   content = review['article'][0]['content']
@@ -27,7 +27,7 @@ review_data['the_articles'].each do |review|
 
   begin
     puts "creating review #{tentative_title}"
-    Review.create!(title: title, content: complete_content)
+    Review.create!(title: title, content: complete_content, game: new_game)
   rescue
     binding.pry
   end

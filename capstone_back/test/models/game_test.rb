@@ -1,20 +1,13 @@
 require "test_helper"
 
 describe Game do
-  let (:game_data) {
-    {
-      "game_title": "Anthem"
-    }
-  }
-
   before do
-    @game = Game.new(game_data)
+    @game = games(:anthem)
   end
 
   describe 'Constructor' do
     it 'can be created' do
-      test_game = Game.new(game_data)
-      assert test_game.valid?
+      assert @game.valid?
     end
   end
   describe 'relations' do
