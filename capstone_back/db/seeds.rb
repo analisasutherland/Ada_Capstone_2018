@@ -28,15 +28,22 @@ review_data['the_articles'].each do |review|
 
   begin
     puts "creating review #{tentative_title}"
-    Review.create!(title: title, content: complete_content, game: new_game)
+    new_review= Review.create!(title: title, content: complete_content, game: new_game)
 
-    # TODO: This will be a build out to associate a tag word with a review. Will need to search through a review to see if tag appears and add tag if it appears
-    # # tag_words = whatever I want to be search terms in an array []
-    #
+    # TODO: This will be a build out to associate a tag word with a review.
+
+    # Will need to search through a review to see if tag appears and add tag if it appears
+    puts "Adding tags for #{new_review.title}"
+
+    TAG_WORDS = %W[adventure mystery RPG portable puzzle]
+
     # iterate through the tag words
-    #
-    # tag_words.each do |tag_word|
-    #   new_tag = Tag.find_or_create_by!(tag_word: tag_word)
+    TAG_WORDS.each do |tag_word|
+      if new_review.content.include?(tag_word)
+        new_tag = Tag.find_or_create_by!(tag_word: tag_word)
+        new_review.tags << new_tag
+      end
+    end
   rescue
     binding.pry
   end
