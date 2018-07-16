@@ -2,7 +2,19 @@ require 'test_helper'
 
 class RecommendationsControllerTest < ActionDispatch::IntegrationTest
   let(:recommendation) { recommendations :one }
+  describe 'Create method' do
+    it 'creates a recommendation' do
+      params = {
+        selected_tags: [
+          'adventure'
+        ]
+      }
+      post recommendations_url(params)
+      rec = Recommendation.last
 
+      assert_response :ok
+    end
+  end
   # it "gets index" do
   #   get recommendations_url
   #   value(response).must_be :success?

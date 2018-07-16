@@ -1,3 +1,4 @@
+require 'pry'
 class RecommendationsController < ApplicationController
   before_action :set_recommendation, only: %i[show update destroy]
 
@@ -15,16 +16,23 @@ class RecommendationsController < ApplicationController
 
   # POST /recommendations
   def create
-    # assume we have an array of tags coming from front
-    test_tags = ['adventure', 'puzzle']
+    puts params
+    filtered_games = Game.find_by_tags(params[:selected_tags])
 
-    puts 'we need to see this'
-    @recommendation = Recommendation.new(recommendation_params)
+    filtered_games.each do |game|
+      puts "Creating Recommendation for Game: #{game.game_title}"
 
-    if @recommendation.save
-      render json: @recommendation, status: :ok
-    else
-      render status: :bad_request, json: { errors: @recommendation.errors.message }
+      test_hash = {
+        game_id: game.id
+      }
+
+      @recommendation = Recommendation.new(test_hash)
+
+      if @recommendation.save
+        render json: @recommendation, status: :ok
+      else
+        render status: :bad_request, json: { errors: @recommendation.errors.message }
+      end
     end
   end
 
@@ -51,6 +59,6 @@ class RecommendationsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def recommendation_params
-    params.require(:recommendation).permit()
+    params.require(:recommendation).permit(selected_tags)
   end
 end
