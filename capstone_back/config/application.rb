@@ -37,7 +37,7 @@ module CapstoneBack
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
-    # NOTE: Automatically load all code from <rails_root>/lib
+    # Automatically load all code from <rails_root>/lib
     config.eager_load_paths << Rails.root.join('lib')
 
     # config.action_dispatch.default_headers = {

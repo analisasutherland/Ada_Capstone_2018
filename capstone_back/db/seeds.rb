@@ -2,7 +2,7 @@ require 'wombat'
 require 'pry'
 
 review_data = WombatScraper.new.crawl
-
+TAG_WORDS = %w[adventure mystery RPG portable puzzle]
 
 review_data['the_articles'].each do |review|
   # if article is empty or it is nil, jump to the next
@@ -28,19 +28,18 @@ review_data['the_articles'].each do |review|
 
   begin
     puts "creating review #{tentative_title}"
-    new_review= Review.create!(title: title, content: complete_content, game: new_game)
+    new_review = Review.create!(title: title, content: complete_content, game: new_game)
 
-    # TODO: This will be a build out to associate a tag word with a review.
+    # This will be a build out to associate a tag word with a review.
 
-    # Will need to search through a review to see if tag appears and add tag if it appears
+    # Will search through a review to see if tag appears and add tag
     puts "Adding tags for #{new_review.title}"
-
-    TAG_WORDS = %W[adventure mystery RPG portable puzzle]
 
     # iterate through the tag words
     TAG_WORDS.each do |tag_word|
       if new_review.content.include?(tag_word)
         new_tag = Tag.find_or_create_by!(tag_word: tag_word)
+        # NOTE: Can I combine the line above and below
         new_review.tags << new_tag
       end
     end

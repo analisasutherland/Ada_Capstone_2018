@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: %i[show update destroy]
+  before_action :set_game, only: %i[show update]
 
   # GET /games
   def index
@@ -13,30 +13,25 @@ class GamesController < ApplicationController
     render json: @game
   end
 
-  # POST /games
-  def create
-    @game = Game.new(game_params)
+  # # POST /games
+  # def create
+  #   @game = Game.new(game_params)
+  #
+  #   if @game.save
+  #     render json: @game, status: :created, location: @game
+  #   else
+  #     render json: @game.errors, status: :unprocessable_entity
+  #   end
+  # end
 
-    if @game.save
-      render json: @game, status: :created, location: @game
-    else
-      render json: @game.errors, status: :unprocessable_entity
-    end
-  end
-
-  # PATCH/PUT /games/1
-  def update
-    if @game.update(game_params)
-      render json: @game
-    else
-      render json: @game.errors, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /games/1
-  def destroy
-    @game.destroy
-  end
+  # # PATCH/PUT /games/1
+  # def update
+  #   if @game.update(game_params)
+  #     render json: @game
+  #   else
+  #     render json: @game.errors, status: :unprocessable_entity
+  #   end
+  # end
 
   private
 

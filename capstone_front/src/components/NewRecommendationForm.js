@@ -5,12 +5,12 @@ import axios from 'axios';
 import './NewRecommendationForm.css';
 
 const BASE_URL = 'http://localhost:3001/'
-// TODO: Build event handler for on Submit and onInputChange
+
 class NewRecommendationForm extends Component {
   constructor() {
     super();
     this.state = {
-      selected_topics: [],
+      selected_tags: [],
       recommendation_id: ''
     };
   }
@@ -18,6 +18,7 @@ class NewRecommendationForm extends Component {
   onInputChange = (event) => {
     console.log('input was changed')
     console.log(event.target);
+    
   }
   // Using hardcoded data right now for a recommendation creation
   onFormSubmit = (event) => {
@@ -26,6 +27,8 @@ class NewRecommendationForm extends Component {
     console.log(this.state);
 
     let searchURL = BASE_URL + `/recommendations`
+
+    // NOTE: This is hardcoded data to get a temp review, replace with retrieved data
 
     axios.post(searchURL, {
       game_id: 1,
@@ -55,6 +58,8 @@ class NewRecommendationForm extends Component {
   }
 
   render(){
+    // QUESTION: Do I need to only render out the game id or use the game id to pull the full game?
+
     // const reccs = this.state.results.map((results,index) => {
     //   return <Recommendation
     //   key={index}
@@ -123,10 +128,6 @@ class NewRecommendationForm extends Component {
       </div>
 
       </form>
-
-      // <div className="returned_recs">
-      //   { reccs }
-      // </div>
 
       </div>
     )

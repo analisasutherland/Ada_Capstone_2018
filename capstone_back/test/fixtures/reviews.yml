@@ -4,7 +4,8 @@ one:
   title: "Awesome Review"
   content: "MyText"
   game: anthem
-  tag: adventure
+  tags:
+    - adventure
 
 two:
   title: MyString

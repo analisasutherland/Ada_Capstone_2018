@@ -15,13 +15,16 @@ class RecommendationsController < ApplicationController
 
   # POST /recommendations
   def create
+    # assume we have an array of tags coming from front
+    test_tags = ['adventure', 'puzzle']
+
     puts 'we need to see this'
     @recommendation = Recommendation.new(recommendation_params)
 
     if @recommendation.save
       render json: @recommendation, status: :ok
     else
-      render status: :bad_request, json: { errors: @recommendation.errors.messages}
+      render status: :bad_request, json: { errors: @recommendation.errors.message }
     end
   end
 
@@ -48,6 +51,6 @@ class RecommendationsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def recommendation_params
-    params.require(:recommendation).permit(:game_id, :user_id, :score)
+    params.require(:recommendation).permit()
   end
 end
