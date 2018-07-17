@@ -1,3 +1,3 @@
 class Recommendation < ApplicationRecord
-  # TODO: Recommendation association tests
+  belongs_to :game
 end

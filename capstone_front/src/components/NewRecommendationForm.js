@@ -31,7 +31,6 @@ class NewRecommendationForm extends Component {
 
     let searchURL = BASE_URL + `/recommendations`
 
-    // NOTE: This is hardcoded data to get a temp review, replace with retrieved data
     let approvedTags = {
       selected_tags: this.state.selected_tags
     }

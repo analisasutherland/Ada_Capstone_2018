@@ -39,11 +39,12 @@ review_data['the_articles'].each do |review|
     TAG_WORDS.each do |tag_word|
       if new_review.content.include?(tag_word)
         new_tag = Tag.find_or_create_by!(tag_word: tag_word)
-        # NOTE: Can I combine the line above and below
+
         new_review.tags << new_tag
       end
     end
   rescue
     binding.pry
+    TODO: replace with error/status handling
   end
 end
