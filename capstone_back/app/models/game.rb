@@ -13,7 +13,7 @@ class Game < ApplicationRecord
 
     filtered_reviews.each do |review|
       # return game associated with filtered reviews
-      @selected_games << review.game
+      @selected_games << review.game.id
     end
     @selected_games
   end

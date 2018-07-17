@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import './NewRecommendationForm.css';
 
-const BASE_URL = 'http://localhost:3001/'
+const BASE_URL = 'http://localhost:3001'
 
 class NewRecommendationForm extends Component {
   constructor() {
@@ -27,23 +27,22 @@ class NewRecommendationForm extends Component {
   onFormSubmit = (event) => {
     event.preventDefault();
     console.log('clicked submit')
-    console.log(this.state);
+    console.log(this.state.selected_tags);
 
     let searchURL = BASE_URL + `/recommendations`
 
     // NOTE: This is hardcoded data to get a temp review, replace with retrieved data
+    let approvedTags = {
+      selected_tags: this.state.selected_tags
+    }
 
-    axios.post(searchURL, {
-      game_id: 1,
-      score: 0,
-      user_id: 1
-    })
+    console.log(approvedTags);
 
+    axios.post(searchURL, approvedTags)
     .then((response) => {
       console.log('Success');
       console.log(response.data);
       // this.setState({results: response.data});
-      console.log(this.state.results);
       this.setState({recommendation_id: response.data.id})
       console.log(this.state.recommendation_id);
     })
