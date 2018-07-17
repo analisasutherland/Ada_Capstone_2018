@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import Recommendation from './Recommendation';
+// import Recommendation from './Recommendation';
 
 import './NewRecommendationForm.css';
 
@@ -61,7 +61,6 @@ class NewRecommendationForm extends Component {
 
     this.props.getRecommendationscallback()
   }
-
 
   render(){
     return(

@@ -9,7 +9,7 @@ class Recommendation extends Component {
 
       <div className='rec-header'>
       <p>
-      This is a new recommendation
+      Test Recommendation
       </p>
       </div>
 

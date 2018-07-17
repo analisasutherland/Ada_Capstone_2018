@@ -10,7 +10,6 @@ import {
 import NewRecommendationForm from './NewRecommendationForm';
 import Recommendation from './Recommendation';
 
-
 class GameSite extends Component {
   constructor() {
     super();
@@ -44,33 +43,42 @@ class GameSite extends Component {
           getRecommendationscallback={this.getRecommendations} /> )}
           />);
         }
-        return ( <Recommendation /> );
-      }
-
-      render() {
         return (
-          <HashRouter>
-          <div className='gamesite'>
-          <div className='gamesite-header'>
-          <ul className='header__text'>
-          <li>
-          <NavLink to="/">Home Page </NavLink>
-          </li>
-          <li>
-          <NavLink to="/recommendations">Get A Recommendation </NavLink>
-          </li>
-          </ul>
-          </div>
-
-          <div className='content'>
-          { this.renderRecsOrForm(this.state.recommendations)}
-          </div>
-
-          </div>
-          </HashRouter>
-        )
-      }
+          recommendations.map((recommendation,index) => {
+            if (index < 3) {
+              return <Recommendation
+              key={index}
+              index={index}
+              />
+            }
+        })
+      )
     }
+
+  render() {
+    return (
+      <HashRouter>
+      <div className='gamesite'>
+      <div className='gamesite-header'>
+      <ul className='header__text'>
+      <li>
+      <NavLink to="/">Home Page </NavLink>
+      </li>
+      <li>
+      <NavLink to="/recommendations">Get A Recommendation </NavLink>
+      </li>
+      </ul>
+      </div>
+
+      <div className='content'>
+      { this.renderRecsOrForm(this.state.recommendations)}
+      </div>
+
+      </div>
+      </HashRouter>
+    )
+  }
+}
 export default GameSite;
 // TODO: GameSite state determines what is rendered by GameSite
 
