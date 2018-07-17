@@ -19,7 +19,7 @@ class RecommendationsController < ApplicationController
     filtered_games = Game.find_by_tags(params[:selected_tags])
 
     filtered_games.each do |id|
-      puts "Creating Recommendation for Game"
+      puts 'Creating Recommendation for Topics'
 
       logger.debug "Game: #{id}"
       test_hash = {

@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import Recommendation from './Recommendation';
 
 import './NewRecommendationForm.css';
 
 const BASE_URL = 'http://localhost:3001'
 
 class NewRecommendationForm extends Component {
+  static propTypes = {
+    getRecommendationscallback: PropTypes.func
+  }
+
   constructor() {
     super();
     this.state = {
@@ -16,17 +21,17 @@ class NewRecommendationForm extends Component {
   }
 
   onInputChange = (event) => {
-    console.log('input was changed')
-    console.log(event.target.value);
+    console.log('Topic Selected')
     this.setState({
       selected_tags:
       [...this.state.selected_tags, event.target.value]
     });
   }
-  // Using hardcoded data right now for a recommendation creation
+
+  // Recommendation created upon form submit
   onFormSubmit = (event) => {
     event.preventDefault();
-    console.log('clicked submit')
+    console.log('form submit')
     console.log(this.state.selected_tags);
 
     let searchURL = BASE_URL + `/recommendations`
@@ -35,15 +40,11 @@ class NewRecommendationForm extends Component {
       selected_tags: this.state.selected_tags
     }
 
-    console.log(approvedTags);
-
     axios.post(searchURL, approvedTags)
     .then((response) => {
       console.log('Success');
-      console.log(response.data);
-      // this.setState({results: response.data});
-      this.setState({recommendation_id: response.data.id})
-      console.log(this.state.recommendation_id);
+
+      this.setState({recommendation_id: response.data.id});
     })
 
     .catch((error) => {
@@ -53,21 +54,16 @@ class NewRecommendationForm extends Component {
 
     // QUESTION: Do I need to reset the rec id after I have created a new recommendation
 
-    // this.setState({
-    //   recommendation_id: ''
-    // })
+    this.setState({
+      recommendation_id: '',
+      selected_tags: []
+    })
+
+    this.props.getRecommendationscallback()
   }
 
-  render(){
-    // QUESTION: Do I need to only render out the game id or use the game id to pull the full game?
 
-    // const reccs = this.state.results.map((results,index) => {
-    //   return <Recommendation
-    //   key={index}
-    //   index={index}
-    //   game={result.game_id}
-    //   />
-    // });
+  render(){
     return(
       <div className='whole-rec-form'>
 
@@ -136,3 +132,7 @@ class NewRecommendationForm extends Component {
 }
 
 export default NewRecommendationForm;
+
+// <div className='rec-results'>
+//   { recommendation_id }
+// </div>

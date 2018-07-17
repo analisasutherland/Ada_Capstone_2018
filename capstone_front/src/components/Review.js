@@ -16,3 +16,4 @@ class Review extends Component {
 }
 
 export default Review;
+// TODO: Figure this component, why do I need you?
