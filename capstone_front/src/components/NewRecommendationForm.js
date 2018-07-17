@@ -17,8 +17,11 @@ class NewRecommendationForm extends Component {
 
   onInputChange = (event) => {
     console.log('input was changed')
-    console.log(event.target);
-    
+    console.log(event.target.value);
+    this.setState({
+      selected_tags:
+      [...this.state.selected_tags, event.target.value]
+    });
   }
   // Using hardcoded data right now for a recommendation creation
   onFormSubmit = (event) => {

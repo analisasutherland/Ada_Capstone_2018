@@ -16,7 +16,6 @@ class RecommendationsController < ApplicationController
 
   # POST /recommendations
   def create
-    puts params
     filtered_games = Game.find_by_tags(params[:selected_tags])
 
     filtered_games.each do |game|

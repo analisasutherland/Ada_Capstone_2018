@@ -20,3 +20,4 @@ describe Game do
     end
   end
 end
+# TODO: Tests for class method find_by_tags
