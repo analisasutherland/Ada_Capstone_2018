@@ -44,6 +44,8 @@ class NewRecommendationForm extends Component {
     .then((response) => {
       console.log('Success');
 
+      console.log('*******', response.data);
+
       this.setState({recommendation_id: response.data.id});
     })
 
@@ -51,8 +53,6 @@ class NewRecommendationForm extends Component {
       // TODO: include Status Message using Status Component
       console.log(error);
     });
-
-    // QUESTION: Do I need to reset the rec id after I have created a new recommendation
 
     this.setState({
       recommendation_id: '',

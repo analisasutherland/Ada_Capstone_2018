@@ -24,7 +24,7 @@ class GameSite extends Component {
     axios.get(rec_URL)
     .then((response) => {
       console.log('Success');
-      console.log(response.data);
+      console.log('*******', response.data);
       const recommendations_lists = response.data
       this.setState({ recommendations: recommendations_lists });
     })
@@ -43,45 +43,48 @@ class GameSite extends Component {
           getRecommendationscallback={this.getRecommendations} /> )}
           />);
         }
-        return (
-          recommendations.map((recommendation,index) => {
-            if (index < 3) {
-              return <Recommendation
-              key={index}
-              index={index}
-              />
-            }
+        console.log(recommendations);
+      return (
+        recommendations.map((recommendation,index) => {
+          if (index < 3) {
+            return <Recommendation
+            key={index}
+            index={index}
+            game_id={recommendation.game_id}
+            game_title={recommendation.game.game_title}
+            />
+          }
         })
       )
     }
 
-  render() {
-    return (
-      <HashRouter>
-      <div className='gamesite'>
-      <div className='gamesite-header'>
-      <ul className='header__text'>
-      <li>
-      <NavLink to="/">Home Page </NavLink>
-      </li>
-      <li>
-      <NavLink to="/recommendations">Get A Recommendation </NavLink>
-      </li>
-      </ul>
-      </div>
+      render() {
+        return (
+          <HashRouter>
+          <div className='gamesite'>
+          <div className='gamesite-header'>
+          <ul className='header__text'>
+          <li>
+          <NavLink to="/">Home Page </NavLink>
+          </li>
+          <li>
+          <NavLink to="/recommendations">Get A Recommendation </NavLink>
+          </li>
+          </ul>
+          </div>
 
-      <div className='content'>
-      { this.renderRecsOrForm(this.state.recommendations)}
-      </div>
+          <div className='content'>
+          { this.renderRecsOrForm(this.state.recommendations)}
+          </div>
 
-      </div>
-      </HashRouter>
-    )
-  }
-}
-export default GameSite;
-// TODO: GameSite state determines what is rendered by GameSite
+          </div>
+          </HashRouter>
+        )
+      }
+    }
+    export default GameSite;
+    // TODO: GameSite state determines what is rendered by GameSite
 
-// if recommendations exsist in state then render Recc Component
-// else
-// render NewRecommendationForm
+    // if recommendations exsist in state then render Recc Component
+    // else
+    // render NewRecommendationForm

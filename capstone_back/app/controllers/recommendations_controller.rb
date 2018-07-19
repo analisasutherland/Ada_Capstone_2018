@@ -6,7 +6,7 @@ class RecommendationsController < ApplicationController
   def index
     @recommendations = Recommendation.all
 
-    render json: @recommendations
+    render :json => @recommendations, :include => {:game => {:only => :game_title}}, :except => [:created_at, :updated_at]
   end
 
   # GET /recommendations/1
@@ -34,7 +34,8 @@ class RecommendationsController < ApplicationController
 
     if @recommendation.save
       logger.debug "saved"
-      render json: @recommendation, status: :ok
+      # render json: @recommendation, status: :ok
+      render :json => @recommendation, :include => {:game => {:only => :game_title}}, :except => [:created_at, :updated_at]
     else
       render status: :bad_request, json: { errors: @recommendation.errors.message }
     end
