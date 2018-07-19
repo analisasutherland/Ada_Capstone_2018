@@ -53,11 +53,11 @@ class NewRecommendationForm extends Component {
       // TODO: include Status Message using Status Component
       console.log(error);
     });
-
-    this.setState({
-      recommendation_id: '',
-      selected_tags: []
-    })
+    //
+    // this.setState({
+    //   recommendation_id: '',
+    //   selected_tags: []
+    // })
 
     this.props.getRecommendationscallback()
   }
