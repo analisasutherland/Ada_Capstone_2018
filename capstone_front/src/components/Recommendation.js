@@ -11,27 +11,33 @@ class Recommendation extends Component {
     image: PropTypes.string
   }
 
+  // trimImg = (image) => {
+  //   let trimmed_img = image.trim("");
+  //   return trimmed_img
+  // }
+
   render() {
+    console.log(this.props);
     return(
       <div className='rec-container'>
 
-      <section className='recommendation'>
-      <div className='rec-header'>
+        <section className='recommendation'>
+          <div className='rec-header'>
 
-      <div className='rec-content'>
-      <h3> We Think You Might Enjoy...</h3>
-      <p>Game:
-      {this.props.game_id}
-      {this.props.game_title}
-      {this.props.image}
-      </p>
-      </div>
+            <div className='rec-content'>
+              <h3> We Think You Might Enjoy...</h3>
+              <p>Game:
+                {this.props.game_id}
+                {this.props.game_title}
+                <p>{this.props.image}</p>
+              </p>
+            </div>
 
-      </div>
+          </div>
 
-      <div className='rec-content'>
-      </div>
-      </section>
+          <div className='rec-content'>
+          </div>
+        </section>
 
       </div>
     )

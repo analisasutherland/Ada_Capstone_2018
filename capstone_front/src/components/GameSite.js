@@ -52,9 +52,9 @@ class GameSite extends Component {
           getRecommendationscallback={this.getRecommendations} />
       )
     }
-    console.log(recommendations);
     let uniqueRecs = this.removeDuplicates(recommendations);
-
+    console.log(recommendations);
+    console.log(recommendations[0].game.image);
     return (
       uniqueRecs.slice(0, 3).map((recommendation,index) => {
         return <Recommendation
