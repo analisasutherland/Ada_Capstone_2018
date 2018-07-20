@@ -34,27 +34,28 @@ class GameSite extends Component {
   }
 
   renderRecsOrForm = (recommendations) => {
-    if (recommendations.length == 0) {
+    if (recommendations.length === 0) {
       return (
         <NewRecommendationForm
           getRecommendationscallback={this.getRecommendations} />
       )
-    }
-    console.log(recommendations);
-    return (
-      recommendations.map((recommendation,index) => {
-        if (index < 3) {
-          return <Recommendation
-            key={index}
-            index={index}
-            game_id={recommendation.game_id}
-            game_title={recommendation.game.game_title}
-            />
-        }
-      })
-    )
-  }
+    } else {
+      let uniqueRecs = recommendations.forEach(function(obj) {
+        if (recommendations.indexOf(obj.recommendation) === -1) recommendations.push(obj.recommendation)
+      });
 
+      return uniqueRecs.map((rec,index) => {
+        // if (index < 3) {
+        return <Recommendation
+          key={index}
+          index={index}
+          game_id={rec.game_id}
+          game_title={rec.game.game_title}
+          />
+        // }
+      })
+    }
+  }
 
   onClick = () => {
     console.log('We have clicked!');

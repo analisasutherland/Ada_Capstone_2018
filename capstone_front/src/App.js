@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import GameSite from './components/GameSite';
 
@@ -8,7 +8,6 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">JUST YOU WAIT</h1>
         </header>
         <GameSite />
@@ -18,3 +17,4 @@ class App extends Component {
 }
 
 export default App;
+// <img src={logo} className="App-logo" alt="logo" />
