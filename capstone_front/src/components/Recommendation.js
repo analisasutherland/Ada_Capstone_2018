@@ -26,11 +26,13 @@ class Recommendation extends Component {
 
             <div className='rec-content'>
               <h3> We Think You Might Enjoy...</h3>
-              <p>Game:
+              <div>Game:
                 {this.props.game_id}
                 {this.props.game_title}
-                <p>{this.props.image}</p>
-              </p>
+                <div>
+                  <img className="movie-image" src={this.props.image} height="250" width="200"/>
+                </div>
+              </div>
             </div>
 
           </div>
