@@ -33,67 +33,78 @@ class GameSite extends Component {
     });
   }
 
+  removeDuplicates = (recommendations) => {
+    let uniqueRecs = [];
+    let seenIds = [];
+    recommendations.forEach(function(recommendation) {
+      if (!seenIds.includes(recommendation.game_id)) {
+        uniqueRecs.push(recommendation)
+        seenIds.push(recommendation.game_id)
+      }
+    });
+    return uniqueRecs;
+  }
+
   renderRecsOrForm = (recommendations) => {
     if (recommendations.length === 0) {
       return (
         <NewRecommendationForm
           getRecommendationscallback={this.getRecommendations} />
       )
-    } else {
-      let uniqueRecs = recommendations.forEach(function(obj) {
-        if (recommendations.indexOf(obj.recommendation) === -1) recommendations.push(obj.recommendation)
-      });
+    }
+    console.log(recommendations);
+    let uniqueRecs = this.removeDuplicates(recommendations);
 
-      return uniqueRecs.map((rec,index) => {
-        // if (index < 3) {
+    return (
+      uniqueRecs.slice(0, 3).map((recommendation,index) => {
         return <Recommendation
           key={index}
           index={index}
-          game_id={rec.game_id}
-          game_title={rec.game.game_title}
+          game_id={recommendation.game_id}
+          game_title={recommendation.game.game_title}
           />
-        // }
-      })
-    }
-  }
-
-  onClick = () => {
-    console.log('We have clicked!');
-    this.setState(
-      {
-        recommendations: ''
       }
-    );
-  }
-
-  render() {
-    return (
-      <HashRouter>
-        <div className='gamesite'>
-          <div className='gamesite-header'>
-            <ul className='header__text'>
-              <li>
-                <NavLink to="/">Home Page </NavLink>
-              </li>
-              <li>
-                <NavLink to="/recommendations" onClick={this.onClick}>Get A Recommendation </NavLink>
-              </li>
-            </ul>
-          </div>
-
-          <div className='content'>
-            <Route
-              path='/recommendations'
-              render= { () => (
-                this.renderRecsOrForm(this.state.recommendations)
-              )}
-              />
-          </div>
-
-        </div>
-      </HashRouter>
     )
-  }
+  )
+}
+
+onClick = () => {
+  console.log('We have clicked!');
+  this.setState(
+    {
+      recommendations: ''
+    }
+  );
+}
+
+render() {
+  return (
+    <HashRouter>
+      <div className='gamesite'>
+        <div className='gamesite-header'>
+          <ul className='header__text'>
+            <li>
+              <NavLink to="/">Home Page </NavLink>
+            </li>
+            <li>
+              <NavLink to="/recommendations" onClick={this.onClick}>Get A Recommendation </NavLink>
+            </li>
+          </ul>
+        </div>
+
+        <div className='content'>
+          <Route
+            path='/recommendations'
+            render= { () => (
+              this.renderRecsOrForm(this.state.recommendations)
+            )}
+            />
+        </div>
+
+      </div>
+    </HashRouter>
+  )
+}
 }
 
 export default GameSite;
