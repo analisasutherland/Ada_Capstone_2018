@@ -9,10 +9,11 @@ review_data['the_articles'].each do |review|
   next if review['article'].nil? || review['article'].empty?
 
   tentative_title = review['article'][0]['titles']
+  tentative_image = review['article'][0]['image']
 
   next if tentative_title.empty? || tentative_title.nil?
 
-  # TODO: Need to simplfy way that title is set, consider using .first for an array to get first occuring title else if the first element is not the one we want (why??), we will use the long method
+  next if tentative_image.nil?
 
   if tentative_title.nil? || tentative_title.length.nil?
     title = 'untitled'
@@ -20,7 +21,13 @@ review_data['the_articles'].each do |review|
     title = tentative_title.group_by(&:itself).values.max_by(&:size).first
   end
 
-  new_game = Game.find_or_create_by!(game_title: title)
+  if tentative_image.nil?
+    image = 'no image'
+  else
+    image = tentative_image
+  end
+
+  new_game = Game.find_or_create_by!(game_title: title, image: image)
 
   # The content is broken up into separate index based on paragraphs. Joining them together at a line break
   content = review['article'][0]['content']

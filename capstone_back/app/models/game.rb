@@ -2,7 +2,7 @@ class Game < ApplicationRecord
   has_many :reviews
   has_many :recommendations
 
-  validates :game_title, presence: true
+  validates :game_title, :image, presence: true
 
   # we have an array of tags coming from front
 
