@@ -45,6 +45,6 @@ review_data['the_articles'].each do |review|
     end
   rescue
     binding.pry
-    TODO: replace with error/status handling
+    # TODO: replace with error/status handling
   end
 end

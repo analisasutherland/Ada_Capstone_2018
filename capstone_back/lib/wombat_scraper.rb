@@ -16,8 +16,8 @@ class WombatScraper
     article 'css=div.c-entry-content', :iterator do |article|
       article.titles 'css=em', :list
       article.content 'css=p', :list
-      article.image 'css=picture.c-picture', :list
-      binding.pry
+      article.image({ xpath: ".//img/@src" })
+      # binding.pry
     end
   end
 end
