@@ -62,6 +62,7 @@ class GameSite extends Component {
           index={index}
           game_id={recommendation.game_id}
           game_title={recommendation.game.game_title}
+          image={recommendation.game.image}
           />
       }
     )

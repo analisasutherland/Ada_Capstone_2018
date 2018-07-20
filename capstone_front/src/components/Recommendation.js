@@ -7,7 +7,8 @@ import './Recommendation.css'
 class Recommendation extends Component {
   static propTypes = {
     game_id: PropTypes.number.isRequired,
-    game_title: PropTypes.string
+    game_title: PropTypes.string,
+    image: PropTypes.string
   }
 
   render() {
@@ -22,6 +23,7 @@ class Recommendation extends Component {
       <p>Game:
       {this.props.game_id}
       {this.props.game_title}
+      {this.props.image}
       </p>
       </div>
 
