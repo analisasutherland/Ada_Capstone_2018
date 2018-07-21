@@ -19,28 +19,12 @@ class Recommendation extends Component {
   render() {
     console.log(this.props);
     return(
-      <div className='rec-container'>
-
-        <section className='recommendation'>
-          <div className='rec-header'>
-
-            <div className='rec-content'>
-              <h3> We Think You Might Enjoy...</h3>
-              <div>Game:
-                {this.props.game_id}
-                {this.props.game_title}
-                <div>
-                  <img className="movie-image" src={this.props.image} height="250" width="200"/>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <div className='rec-content'>
-          </div>
-        </section>
-
+      <div>
+        <img src={this.props.image} height="250" width="200"/>
+        <p>
+          {this.props.game_id}
+          {this.props.game_title}
+        </p>
       </div>
     )
   }
