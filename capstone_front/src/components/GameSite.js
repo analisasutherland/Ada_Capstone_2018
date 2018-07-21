@@ -18,19 +18,8 @@ class GameSite extends Component {
     };
   }
 
-  getRecommendations = () => {
-    let rec_URL = 'http://localhost:3001/recommendations';
-
-    axios.get(rec_URL)
-    .then((response) => {
-      console.log('Success');
-      console.log('*******', response.data);
-      const recommendations_lists = response.data
-      this.setState({ recommendations: recommendations_lists });
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  getRecommendations = (collection) => {
+      this.setState({ recommendations: collection });
   }
 
   removeDuplicates = (recommendations) => {
@@ -85,23 +74,23 @@ render() {
         <div className='gamesite-header'>
           <ul className='header__text'>
             <li>
-              <NavLink to="/">Home Page </NavLink>
+              <NavLink to="/" onClick={this.onClick}>Home Page </NavLink>
             </li>
             <li>
               <NavLink to="/recommendations" onClick={this.onClick}>Get A Recommendation </NavLink>
             </li>
           </ul>
         </div>
-
-        <div className='content'>
-          <Route
-            path='/recommendations'
-            render= { () => (
-              this.renderRecsOrForm(this.state.recommendations)
-            )}
-            />
+        <div className='scene'>
+          <div className='content'>
+            <Route
+              path='/recommendations'
+              render= { () => (
+                this.renderRecsOrForm(this.state.recommendations)
+              )}
+              />
+          </div>
         </div>
-
       </div>
     </HashRouter>
   )

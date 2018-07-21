@@ -2,7 +2,7 @@ require "test_helper"
 
 describe Tag do
   before do
-    @tag = tags(:adventure)
+    @tag = tags(:action)
   end
 
   describe 'Constructor' do

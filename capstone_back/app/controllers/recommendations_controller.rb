@@ -18,6 +18,8 @@ class RecommendationsController < ApplicationController
   def create
     filtered_games = Game.find_by_tags(params[:selected_tags])
 
+    new_Recommendations = []
+
     filtered_games.each do |id|
       puts 'Creating Recommendation for Topics'
 
@@ -29,15 +31,20 @@ class RecommendationsController < ApplicationController
       puts test_hash
 
       @recommendation = Recommendation.new(test_hash)
-      puts @recommendation
-    end
-    if @recommendation.save
+
+      new_Recommendations << @recommendation
+
+      success = @recommendation.save
       logger.debug "saved"
-      # render json: @recommendation, status: :ok
-      render :json => @recommendation, :include => { :game => { :except => [:created_at, :updated_at] } }
-    else
-      render status: :bad_request, json: { errors: @recommendation.errors.message }
+
+      unless success
+        render status: :bad_request, json: { errors: @recommendation.errors.message }
+        break
+      end
     end
+    puts new_Recommendations
+
+    render :json => new_Recommendations, :include => { :game => { :except => [:created_at, :updated_at] } }
   end
 
   # PATCH/PUT /recommendations/1

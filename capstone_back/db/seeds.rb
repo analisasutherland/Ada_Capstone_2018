@@ -2,7 +2,7 @@ require 'wombat'
 require 'pry'
 
 review_data = WombatScraper.new.crawl
-TAG_WORDS = %w[adventure mystery RPG portable puzzle]
+TAG_WORDS = %w[action mystery RPG portable puzzle]
 
 review_data['the_articles'].each do |review|
   # if article is empty or it is nil, jump to the next

@@ -16,7 +16,7 @@ class NewRecommendationForm extends Component {
     super();
     this.state = {
       selected_tags: [],
-      recommendation_id: ''
+      recommendation_id: []
     };
   }
 
@@ -46,20 +46,16 @@ class NewRecommendationForm extends Component {
 
       console.log('*******', response.data);
 
-      this.setState({recommendation_id: response.data.id});
+      this.setState({recommendation_id: response.data});
+
+
+      this.props.getRecommendationscallback(response.data)
     })
 
     .catch((error) => {
       // TODO: include Status Message using Status Component
       console.log(error);
     });
-    //
-    // this.setState({
-    //   recommendation_id: '',
-    //   selected_tags: []
-    // })
-
-    this.props.getRecommendationscallback()
   }
 
   render(){
@@ -84,10 +80,10 @@ class NewRecommendationForm extends Component {
       <input
       type="checkbox"
       name="search_value"
-      value="adventure"
+      value="action"
       onChange={this.onInputChange}
       />
-      <label>Adventure</label>
+    <label>Action</label>
       </div>
 
       <div>

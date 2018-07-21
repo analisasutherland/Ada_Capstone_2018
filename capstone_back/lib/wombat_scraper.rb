@@ -4,7 +4,7 @@ require 'pry'
 class WombatScraper
   include Wombat::Crawler
   base_url 'https://www.polygon.com'
-  path '/reviews/archives'
+  path '/reviews/archives/2'
   # TODO: Need a loop that loops through all the paginations of articles index pages
   # article_indexs 'css=a.c-pagination__next c-pagination__link', :follow do
 

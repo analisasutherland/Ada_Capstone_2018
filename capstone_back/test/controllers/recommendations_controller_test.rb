@@ -6,7 +6,7 @@ class RecommendationsControllerTest < ActionDispatch::IntegrationTest
     it 'creates a recommendation' do
       params = {
         selected_tags: [
-          'adventure'
+          'action'
         ]
       }
       post recommendations_url(params)

@@ -5,7 +5,7 @@ one:
   content: "MyText"
   game: anthem
   tags:
-    - adventure
+    - action
 
 two:
   title: MyString
