@@ -20,7 +20,8 @@ form {
 .recommendations {
   position: fixed;
   overflow: scroll;
-  height: 100%;
+  top: 200px;
+  bottom: 10px;
   width: 100%;
 }
 

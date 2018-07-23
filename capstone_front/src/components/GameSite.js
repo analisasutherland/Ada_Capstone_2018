@@ -57,18 +57,16 @@ class GameSite extends Component {
     return (
       <div className='recommendations'>
         <div onClick={this.onClick}></div>
-        {/*// <Carousel showThumbs={false}>*/}
-          { uniqueRecs.slice(0, 3).map((recommendation,index) => {
-            return <Recommendation
-              key={index}
-              index={index}
-              className='legend'
-              game_id={recommendation.game_id}
-              game_title={recommendation.game.game_title}
-              image={recommendation.game.image}
-              />
-          })}
-        {/*// </Carousel>*/}
+        { uniqueRecs.slice(0, 3).map((recommendation,index) => {
+          return <Recommendation
+            key={index}
+            index={index}
+            className='legend'
+            game_id={recommendation.game_id}
+            game_title={recommendation.game.game_title}
+            image={recommendation.game.image}
+            />
+        })}
       </div>
     )
   }
