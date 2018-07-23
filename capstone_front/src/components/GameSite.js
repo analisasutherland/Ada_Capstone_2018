@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './GameSite.css';
-import axios from 'axios';
+// import axios from 'axios';
 import {
   Route,
   NavLink,
@@ -8,8 +8,6 @@ import {
 } from "react-router-dom";
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-
-
 
 import NewRecommendationForm from './NewRecommendationForm';
 import Recommendation from './Recommendation';
@@ -49,17 +47,20 @@ class GameSite extends Component {
     console.log(recommendations);
     console.log(recommendations[0].game.image);
     return (
-      <Carousel showThumbs={false}>
-        { uniqueRecs.slice(0, 3).map((recommendation,index) => {
-          return <Recommendation
-            key={index}
-            index={index}
-            game_id={recommendation.game_id}
-            game_title={recommendation.game.game_title}
-            image={recommendation.game.image}
-            />
-        })}
-      </Carousel>
+      <div className='carousel-overlay'>
+        <div className='carousel-lightbox'></div>
+        <Carousel showThumbs={false}>
+          { uniqueRecs.slice(0, 3).map((recommendation,index) => {
+            return <Recommendation
+              key={index}
+              index={index}
+              game_id={recommendation.game_id}
+              game_title={recommendation.game.game_title}
+              image={recommendation.game.image}
+              />
+          })}
+        </Carousel>
+      </div>
     )
   }
 
