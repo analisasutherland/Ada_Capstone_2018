@@ -1,13 +1,38 @@
+.whole-rec-form {
+  display: block;
+  text-align: center;
+  /* width: 75%; */
+}
+
+form {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.inner-form {
+  width: 55%;
+  margin: auto;
+  border: 2px solid;
+}
+
+.recommendations {
+  position: fixed;
+  overflow: scroll;
+  height: 100%;
+  width: 100%;
+}
+
 legend {
-    background-color: #000;
-    color: #fff;
-    padding: 3px 6px;
+  background-color: #000;
+  color: #fff;
 }
 
 .output {
-    font: 1rem 'Fira Sans', sans-serif;
+  font: 1rem 'Fira Sans', sans-serif;
 }
 
 input {
-    margin: .4rem;
+  margin: .4rem;
 }

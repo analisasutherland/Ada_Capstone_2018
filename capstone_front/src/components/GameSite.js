@@ -55,9 +55,9 @@ class GameSite extends Component {
     }
     let uniqueRecs = this.removeDuplicates(recommendations);
     return (
-      <div className='carousel-overlay'>
-        <div className='carousel-lightbox' onClick={this.onClick}></div>
-        <Carousel showThumbs={false}>
+      <div className='recommendations'>
+        <div onClick={this.onClick}></div>
+        {/*// <Carousel showThumbs={false}>*/}
           { uniqueRecs.slice(0, 3).map((recommendation,index) => {
             return <Recommendation
               key={index}
@@ -68,7 +68,7 @@ class GameSite extends Component {
               image={recommendation.game.image}
               />
           })}
-        </Carousel>
+        {/*// </Carousel>*/}
       </div>
     )
   }
@@ -92,7 +92,7 @@ class GameSite extends Component {
                 <button>
                   <NavLink
                     to="/recommendations"
-                    type='button' onClick={this.onClick}>Get A Recommendation
+                    type='button' onClick={this.onClick}>Get Recommendations
                   </NavLink>
                 </button>
               </li>

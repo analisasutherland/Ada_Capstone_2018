@@ -61,65 +61,66 @@ class NewRecommendationForm extends Component {
   render(){
     return(
       <div className='whole-rec-form'>
+        <div className='inner-form'>
+          <legend>What Kind of Games Would You Like To Play?</legend>
 
-      <legend>What Kind of Games Would You Like To Play?</legend>
+          <form className="rec-form" onSubmit={this.onFormSubmit}>
 
-      <form className="rec-form" onSubmit={this.onFormSubmit}>
+            <div>
+              <input
+                type="checkbox"
+                name="search_value"
+                value="RPG"
+                onChange={this.onInputChange}
+                />
+              <label>RPG</label>
+            </div>
 
-      <div>
-      <input
-      type="checkbox"
-      name="search_value"
-      value="RPG"
-      onChange={this.onInputChange}
-      />
-      <label>RPG</label>
-      </div>
+            <div>
+              <input
+                type="checkbox"
+                name="search_value"
+                value="action"
+                onChange={this.onInputChange}
+                />
+              <label>Action</label>
+            </div>
 
-      <div>
-      <input
-      type="checkbox"
-      name="search_value"
-      value="action"
-      onChange={this.onInputChange}
-      />
-    <label>Action</label>
-      </div>
+            <div>
+              <input
+                type="checkbox"
+                name="search_value"
+                value="puzzle"
+                onChange={this.onInputChange}
+                />
+              <label>Puzzle</label>
+            </div>
 
-      <div>
-      <input
-      type="checkbox"
-      name="search_value"
-      value="puzzle"
-      onChange={this.onInputChange}
-      />
-      <label>Puzzle</label>
-      </div>
+            <div>
+              <input type="checkbox"
+                name="search_value"
+                value="portable"
+                onChange={this.onInputChange}
+                />
+              <label>Portable</label>
+            </div>
 
-      <div>
-      <input type="checkbox"
-      name="search_value"
-      value="portable"
-      onChange={this.onInputChange}
-      />
-      <label>Portable</label>
-      </div>
+            <div>
+              <input
+                type="checkbox"
+                name="search_value"
+                value="mystery"
+                onChange={this.onInputChange}
+                />
+              <label>Mystery</label>
+            </div>
 
-      <div>
-      <input
-      type="checkbox"
-      name="search_value"
-      value="mystery"
-      onChange={this.onInputChange}
-      />
-      <label>Mystery</label>
-      </div>
+            <div className="submit-button">
+              <button type='submit'>Find Games</button>
+            </div>
 
-      <div className="submit-button">
-      <button type='submit'>Find Games</button>
-      </div>
-
-      </form>
+          </form>
+        </div>
 
       </div>
     )
