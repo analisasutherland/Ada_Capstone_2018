@@ -10,6 +10,7 @@ body {
   background-image: url('../images/sugar_gamers_antionio_lopex_photography.png');
   background-size: 100%;
   background-repeat: no-repeat;
+  background-color: #1a0315;
 }
 
 .carousel-lightbox {
@@ -43,4 +44,5 @@ ul li {
 a {
   color: #6e3667;
   font-weight: bold;
+  font-size: 27px;
 }

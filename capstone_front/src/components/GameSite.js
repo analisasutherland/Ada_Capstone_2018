@@ -36,6 +36,16 @@ class GameSite extends Component {
     return uniqueRecs;
   }
 
+
+  onClick = () => {
+    this.setState(
+      {
+        recommendations: ''
+      }
+    );
+  }
+
+
   renderRecsOrForm = (recommendations) => {
     if (recommendations.length === 0) {
       return (
@@ -48,7 +58,7 @@ class GameSite extends Component {
     console.log(recommendations[0].game.image);
     return (
       <div className='carousel-overlay'>
-        <div className='carousel-lightbox'></div>
+        <div className='carousel-lightbox' onClick={this.onClick}></div>
         <Carousel showThumbs={false}>
           { uniqueRecs.slice(0, 3).map((recommendation,index) => {
             return <Recommendation
@@ -62,15 +72,6 @@ class GameSite extends Component {
         </Carousel>
       </div>
     )
-  }
-
-  onClick = () => {
-    console.log('We have clicked!');
-    this.setState(
-      {
-        recommendations: ''
-      }
-    );
   }
 
   render() {
