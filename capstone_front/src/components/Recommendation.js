@@ -11,20 +11,15 @@ class Recommendation extends Component {
     image: PropTypes.string
   }
 
-  // trimImg = (image) => {
-  //   let trimmed_img = image.trim("");
-  //   return trimmed_img
-  // }
-
   render() {
     console.log(this.props);
     return(
       <div>
         <img src={this.props.image} height="250" width="200"/>
-        <p>
+        <div className='legend'>
           {this.props.game_id}
           {this.props.game_title}
-        </p>
+        </div>
       </div>
     )
   }

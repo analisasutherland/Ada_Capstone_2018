@@ -54,8 +54,6 @@ class GameSite extends Component {
       )
     }
     let uniqueRecs = this.removeDuplicates(recommendations);
-    console.log(recommendations);
-    console.log(recommendations[0].game.image);
     return (
       <div className='carousel-overlay'>
         <div className='carousel-lightbox' onClick={this.onClick}></div>
@@ -64,6 +62,7 @@ class GameSite extends Component {
             return <Recommendation
               key={index}
               index={index}
+              className='legend'
               game_id={recommendation.game_id}
               game_title={recommendation.game.game_title}
               image={recommendation.game.image}
@@ -81,10 +80,21 @@ class GameSite extends Component {
           <div className='gamesite-header'>
             <ul className='header__text'>
               <li>
-                <NavLink to="/" onClick={this.onClick}>Home Page </NavLink>
+                <button>
+                  <NavLink
+                    to="/"
+                    onClick={this.onClick}
+                    type='button'>Home Page
+                  </NavLink>
+                </button>
               </li>
               <li>
-                <NavLink to="/recommendations" onClick={this.onClick}>Get A Recommendation </NavLink>
+                <button>
+                  <NavLink
+                    to="/recommendations"
+                    type='button' onClick={this.onClick}>Get A Recommendation
+                  </NavLink>
+                </button>
               </li>
             </ul>
           </div>

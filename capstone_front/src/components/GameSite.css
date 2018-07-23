@@ -42,7 +42,17 @@ ul li {
   width: 40%;
 }
 a {
-  color: #6e3667;
+  color: #88d317;
   font-weight: bold;
   font-size: 27px;
+}
+button {
+  background-color: #6e3667;
+  opacity: 0.6;
+}
+a:link {
+  text-decoration: none;
+}
+button:hover {
+  background-color: #535353;
 }
