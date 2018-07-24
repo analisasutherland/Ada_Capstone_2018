@@ -1,7 +1,6 @@
 .whole-rec-form {
   display: block;
   text-align: center;
-  /* width: 75%; */
 }
 
 form {
@@ -21,7 +20,9 @@ form div {
   width: 55%;
   margin: auto;
   border: 2px solid;
-  /* background-color: black; */
+  border-radius: 5px;
+  font-weight: normal;
+  box-shadow: 10px 10px 10px black;
 }
 
 .recommendations {
@@ -34,7 +35,8 @@ form div {
 
 legend {
   background-color: #000;
-  color: #fff;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
 }
 
 .output {
@@ -46,11 +48,11 @@ input {
 }
 
 .submit-button {
-  padding: 10px 10px 10px 10px;
+  padding: 18px;
   opacity: 1.0;
 }
 
 button {
-  color: white;
+  color: rgb(255, 255, 255);
   font-weight: bold;
 }

@@ -17,9 +17,8 @@ class Recommendation extends Component {
       <div className="recommendation-container">
         <img src={this.props.image}/>
         <div className='legend'>
-          <p>Game Id: {this.props.game_id}</p>
-          <p>Game Title: {this.props.game_title}</p>
-          <p>Link To Review: Coming Soon!</p>
+          <p className= 'primary-text'>{this.props.game_title}</p>
+          <p className='secondary-text'>Link To Review: Coming Soon!</p>
         </div>
       </div>
     )

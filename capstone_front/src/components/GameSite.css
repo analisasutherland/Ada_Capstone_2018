@@ -10,7 +10,8 @@ body {
   background-image: url('../images/sugar_gamers_antionio_lopex_photography.png');
   background-size: 100%;
   background-repeat: no-repeat;
-  background-color: #1a0315;
+  background-color: grey;
+  background-blend-mode: multiply;
 }
 
 .carousel-lightbox {
@@ -42,13 +43,17 @@ ul li {
   width: 40%;
 }
 a {
-  color: white;
+  color: rgb(195, 194, 198);
   font-weight: bold;
-  font-size: 27px;
+  font-size: 18px;
 }
 button {
   background-color: #1a0315;
-  opacity: 0.6;
+  /* opacity: 0.6; */
+  border-radius: 5px;
+  border: 2px solid rgb(195, 194, 198);
+  padding: 18px;
+  font-size: 14px;
 }
 a:link {
   text-decoration: none;
