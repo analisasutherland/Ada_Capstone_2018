@@ -6,7 +6,7 @@ import {
   NavLink,
   HashRouter,
 } from "react-router-dom";
-import { Carousel } from 'react-responsive-carousel';
+// import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import NewRecommendationForm from './NewRecommendationForm';

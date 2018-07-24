@@ -14,11 +14,12 @@ class Recommendation extends Component {
   render() {
     console.log(this.props);
     return(
-      <div>
-        <img src={this.props.image} height="250" width="200"/>
+      <div className="recommendation-container">
+        <img src={this.props.image}/>
         <div className='legend'>
-          {this.props.game_id}
-          {this.props.game_title}
+          <p>Game Id: {this.props.game_id}</p>
+          <p>Game Title: {this.props.game_title}</p>
+          <p>Link To Review: Coming Soon!</p>
         </div>
       </div>
     )

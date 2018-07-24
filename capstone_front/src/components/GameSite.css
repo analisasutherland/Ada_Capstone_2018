@@ -42,12 +42,12 @@ ul li {
   width: 40%;
 }
 a {
-  color: #88d317;
+  color: white;
   font-weight: bold;
   font-size: 27px;
 }
 button {
-  background-color: #6e3667;
+  background-color: #1a0315;
   opacity: 0.6;
 }
 a:link {
