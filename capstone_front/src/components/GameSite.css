@@ -12,9 +12,10 @@ body {
   background-repeat: no-repeat;
   background-color: grey;
   background-blend-mode: multiply;
+  font-family: 'Nobile', sans-serif;
 }
 
-.carousel-lightbox {
+/* .carousel-lightbox {
   opacity: 0.5;
   background-color: black;
   position: absolute;
@@ -27,7 +28,7 @@ body {
 .carousel {
   position: relative;
   margin-top: 15%;
-}
+} */
 
 .carousel .slide img {
   width: auto !important;
@@ -64,4 +65,6 @@ button:hover {
 
 .gamesite-header {
   width: 95%;
+  margin: 30px;
+  padding-bottom: 5px;
 }
