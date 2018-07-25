@@ -8,7 +8,8 @@ class Recommendation extends Component {
   static propTypes = {
     game_id: PropTypes.number.isRequired,
     game_title: PropTypes.string,
-    image: PropTypes.string
+    image: PropTypes.string,
+    url: PropTypes.string
   }
 
   render() {
@@ -18,7 +19,7 @@ class Recommendation extends Component {
         <img src={this.props.image}/>
         <div className='legend'>
           <p className= 'primary-text'>{this.props.game_title}</p>
-          <p className='secondary-text'>Link To Review: Coming Soon!</p>
+          <a className='secondary-text' href={this.props.url}>Read Review</a>
         </div>
       </div>
     )
