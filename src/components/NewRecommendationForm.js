@@ -5,7 +5,7 @@ import axios from 'axios';
 
 import './NewRecommendationForm.css';
 
-const BASE_URL = 'http://localhost:3001'
+const BASE_URL = 'https://og-games.herokuapp.com/'
 
 class NewRecommendationForm extends Component {
   static propTypes = {
