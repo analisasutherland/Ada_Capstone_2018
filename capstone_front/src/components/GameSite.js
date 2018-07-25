@@ -106,6 +106,15 @@ class GameSite extends Component {
                 />
             </div>
           </div>
+          <div className='gamesite-footer'>
+            <ul className="footer-content">
+              <li>
+                <a href="https://github.com/analisasutherland">More By Creator</a>
+              </li>
+              <li>Sourced From: <a href="https://www.polygon.com/">Polygon.com</a></li>
+              <li>Support</li>
+            </ul>
+          </div>
         </div>
       </HashRouter>
     )

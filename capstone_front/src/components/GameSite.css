@@ -47,3 +47,18 @@ button:hover {
   padding-bottom: 5px;
   width: 95%;
 }
+.gamesite-footer {
+  background: #1a0315;
+  border-color: black;
+  border-radius: 5px;
+  border-style: solid;
+  bottom: 0;
+  color: rgb(195, 194, 198);
+  font-size: 8px;
+  height: 60px;
+  position: absolute;
+  width: 100%;
+}
+.gamesite-footer a {
+  font-size: 8px;
+}
